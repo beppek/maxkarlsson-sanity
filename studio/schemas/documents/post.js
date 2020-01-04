@@ -63,6 +63,16 @@ export default {
       ]
     },
     {
+      name: 'tags',
+      type: 'array',
+      title: 'Tags',
+      description: 'Add tags for the post.',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
