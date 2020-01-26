@@ -48,6 +48,16 @@ export default {
     {
       type: 'mainImage',
       options: { hotspot: true }
+    },
+    {
+      name: 'code',
+      title: 'Code editor',
+      description: 'Code editor',
+      type: 'code',
+      options: {
+        theme: 'monokai',
+        withFilename: true
+      }
     }
   ]
 }
