@@ -18,7 +18,8 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "media",
-    "asset-source-unsplash"
+    "asset-source-unsplash",
+    "@sanity/code-input"
   ],
   "parts": [
     {
