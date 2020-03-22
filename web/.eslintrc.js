@@ -1,12 +1,13 @@
 module.exports = {
-  extends: ['standard', 'standard-react', 'plugin:import/errors', 'plugin:import/warnings'],
-  rules: {
-    'react/prop-types': 0,
+  "extends": ["airbnb-typescript", "prettier"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
   },
-  settings: {
-    react: {
-      pragma: 'React',
-      version: '16.8.4'
-    }
+  "rules": {
+    "prettier/prettier": ["error"],
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 };
