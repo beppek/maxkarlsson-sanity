@@ -6,7 +6,7 @@
 
 const { format } = require('date-fns')
 
-async function createBlogPostPages (graphql, actions, reporter) {
+async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -23,12 +23,21 @@ async function createBlogPostPages (graphql, actions, reporter) {
           }
         }
       }
+      allSanityCourse(filter: {slug: {current: {ne: null}}, publishedAt: { ne: null } }) {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
+  const courses = (result.data.allSanityCourse || {}).nodes || []
 
   postEdges
     .forEach((edge, index) => {
@@ -41,6 +50,20 @@ async function createBlogPostPages (graphql, actions, reporter) {
       createPage({
         path,
         component: require.resolve('./src/templates/blog-post.js'),
+        context: { id }
+      })
+    })
+
+  courses
+    .forEach((course, index) => {
+      const { id, slug = {} } = course
+      const path = `/courses/${slug.current}/`
+
+      reporter.info(`Creating coure page: ${path}`)
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/CourseTemplate.jsx'),
         context: { id }
       })
     })
