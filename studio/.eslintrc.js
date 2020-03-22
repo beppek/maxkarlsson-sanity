@@ -5,6 +5,7 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'react/prop-types': 0,
+    'space-before-function-paren': 0
   },
   settings: {
     react: {
