@@ -39,7 +39,7 @@ function CourseTemplate({ data, errors }) {
           <SEO title={course.title || 'Untitled'} description={toPlainText(course.excerpt)} image={course.mainImage} />
           <Course {...course} lessons={lessons} />
         </>
-      )}}
+      )}
     </Layout>
   )
 }
