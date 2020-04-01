@@ -4,6 +4,7 @@ import Layout from '../containers/layout'
 import SEO from '../components/seo'
 import Course from '../components/course/Course'
 import { toPlainText } from '../lib/helpers'
+import { requireLogin } from '../lib/enforcer'
 
 export const query = graphql`
   query CourseTemplateQuery($id: String!) {
@@ -44,4 +45,4 @@ function CourseTemplate({ data, errors }) {
   )
 }
 
-export default CourseTemplate
+export default requireLogin(CourseTemplate)
