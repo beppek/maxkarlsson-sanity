@@ -3,10 +3,11 @@
 
 .content {
   background: var(--color-white);
-  min-height: calc(100% - 73px - 120px);
-
+  min-height: calc(100vh - 82px - 77px);
+  
   @media (--media-min-small) {
-    min-height: calc(100% - 91px - 155px);
+    min-height: calc(100vh - 82px - 77px);
+    /* min-height: calc(100% - 91px - 155px); */
   }
 }
 
