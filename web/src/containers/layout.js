@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Layout from '../components/layout'
+import GenericLayout from '../components/layout/GenericLayout'
+import LandingpageLayout from '../components/layout/LandingpageLayout'
 
 const query = graphql`
   query SiteTitleQuery {
@@ -10,7 +11,7 @@ const query = graphql`
   }
 `
 
-function LayoutContainer (props) {
+function LayoutContainer ({landingPage, ...props}) {
   const [showNav, setShowNav] = useState(false)
   const data = useStaticQuery(query)
   if (!data.site) {
@@ -24,15 +25,25 @@ function LayoutContainer (props) {
   function handleHideNav () {
     setShowNav(false)
   }
-  return (
-    <Layout
-      {...props}
-      showNav={showNav}
-      siteTitle={data.site.title}
-      onHideNav={handleHideNav}
-      onShowNav={handleShowNav}
-    />
-  )
+
+  return landingPage 
+    ? (
+      <LandingpageLayout
+        {...props}
+        showNav={showNav}
+        siteTitle={data.site.title}
+        onHideNav={handleHideNav}
+        onShowNav={handleShowNav}
+      />
+    ) : (
+      <GenericLayout
+        {...props}
+        showNav={showNav}
+        siteTitle={data.site.title}
+        onHideNav={handleHideNav}
+        onShowNav={handleShowNav}
+      />
+    )
 }
 
 export default LayoutContainer

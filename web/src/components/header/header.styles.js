@@ -1,24 +1,23 @@
 import styled from 'styled-components'
 
-import {mediaQueries} from '../../styles/theme'
+import {mediaQueries, fontSizes} from '../../styles/theme'
 
 export const Root = styled.div`
+  height: 7rem;
   position: relative;
   z-index: 100;
-  background-color: ${props => props.theme.primary};
-  color: ${props => props.theme.white};
+  background-color: transparent;
+  /* background-color: ${props => props.theme.white}; */
+  color: ${props => props.theme.primary};
 `
 
 export const Wrapper = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 960px;
-  padding: 1em;
+  padding: 0 1rem 0 2rem;
   display: flex;
-
-  @media ${mediaQueries.minSmall} {
-    padding: 0.5em;
-  }
+  height: 100%;
+  border-bottom: ${props => props.borderBottom ? `solid 1px ${props.theme.lightgrey}` : 'none'};
 `
 
 export const Branding = styled.div`
@@ -26,20 +25,24 @@ export const Branding = styled.div`
   flex: 1;
   
   & a {
+    transition: transform .15s;
     display: inline-block;
-    padding: 0.5em;
-    color: inherit;
+    line-height: 6.5rem;
+    color: ${props => props.landingPage ? props.theme.black : 'inherit'};
     text-decoration: none;
-
+    font-size: ${fontSizes.xlarge}rem;
+    
     @media (hover: hover) {
       &:hover {
-        color: ${props => props.theme.white};
+        color: ${props => props.landingPage ? props.theme.black : 'inherit'};
+        transform: rotate(-5deg);
       }
     }
     
     & svg {
       vertical-align: middle;
       height: 5rem;
+      fill: ${props => props.landingPage ? props.theme.black : props.theme.primary};
     }
   }
 `
@@ -66,22 +69,35 @@ export const ToggleNavButton = styled.button`
 
 export const Nav = styled.nav`
   display: ${props => props.showNav ? 'block' : 'none'};
-
+  width: 300px;
+  
   & ul {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
   }
-
+  
+  & ul li {
+    width: 100%;
+  }
+  
   & ul li a {
+    line-height: 7rem;
+    text-align: center;
     display: block;
-    color: inherit;
+    color: ${props => props.landingPage ? props.theme.black : props.theme.primary};
     text-decoration: none;
-    line-height: 5rem;
+    transition: transform .15s;
+    padding: 0;
+    font-size: ${fontSizes.large}rem;
   }
 
   @media (hover: hover) {
     & ul li a:hover {
-      color: ${props => props.theme.accent};
+      transform: scale(1.1) rotate3d(1,1,1, 5deg);
+      /* background-color: ${props => props.landingPage ? 'transparent' : props.theme.primary}; */
+      /* ${props => !props.landingPage && `color: ${props.theme.white}`}; */
     }
   }
 
@@ -111,10 +127,6 @@ export const Nav = styled.nav`
       list-style: none;
       display: flex;
       justify-content: flex-end;
-    }
-
-    & ul li a {
-      padding: 0.5rem;
     }
   }
 `

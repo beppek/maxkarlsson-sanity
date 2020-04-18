@@ -1,4 +1,5 @@
 import { format, isFuture } from 'date-fns'
+import config from '../../config'
 
 export function cn (...args) {
   return args.filter(Boolean).join(' ')
@@ -18,7 +19,7 @@ export function filterOutDocsPublishedInTheFuture ({ publishedAt }) {
 }
 
 export function getBlogUrl (publishedAt, slug) {
-  return `/blog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+  return `/${config.routes.blog}/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}`
 }
 
 export function buildImageObj (source = { asset: {} }) {

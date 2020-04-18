@@ -4,12 +4,14 @@ import Icon from '../icon'
 
 import Logo from '../../../static/logo.svg'
 
-import {Root, Wrapper, Branding, ToggleNavButton, Nav} from './HeaderStyles'
+import {Root, Wrapper, Branding, ToggleNavButton, Nav} from './header.styles'
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
+const Header = ({ onHideNav, onShowNav, showNav, siteTitle, landingPage }) => {
+  console.log('landingPage', landingPage)
+  return (
   <Root>
-    <Wrapper>
-      <Branding>
+    <Wrapper borderBottom={!landingPage}>
+      <Branding landingPage={landingPage}>
         <Link to='/'><Logo /> {siteTitle}</Link>
       </Branding>
 
@@ -17,18 +19,21 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
         <Icon symbol='hamburger' />
       </ToggleNavButton>
 
-      <Nav showNav={showNav}>
+      <Nav landingPage={landingPage} showNav={showNav}>
         <ul>
           <li>
-            <Link to='/blog/'>Blog</Link>
+            <Link to='/blog'>Blog</Link>
           </li>
           <li>
-            <Link to='/courses/'>Courses</Link>
+            <Link to='/learn'>Learn</Link>
           </li>
+          {/* <li>
+            <Link to='/portfolio'>Portfolio</Link>
+          </li> */}
         </ul>
       </Nav>
     </Wrapper>
   </Root>
-)
+)}
 
 export default Header

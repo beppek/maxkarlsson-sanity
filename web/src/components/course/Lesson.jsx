@@ -5,7 +5,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import PortableText from '../portableText';
-import { useScrollToRef } from '../../hooks/useScroll';
+import { useScrollToRef } from '../../hooks/use-scroll';
 
 function Lesson({lesson, onNextLesson, lastLesson}) {
   const [activeStep, setActiveStep] = useState(0)

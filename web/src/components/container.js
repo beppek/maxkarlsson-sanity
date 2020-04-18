@@ -1,9 +1,16 @@
-import React from 'react'
+import styled from 'styled-components'
 
-import styles from './container.module.css'
+import { mediaQueries } from '../styles/theme'
 
-const Container = ({children}) => {
-  return <div className={styles.root}>{children}</div>
-}
+const Container = styled.div`
+  box-sizing: border-box;
+  max-width: ${props => props.theme.maxWidth};
+  padding: 2rem;
+  margin: 0 auto;
+
+  @media ${mediaQueries.minSmall} {
+    padding: 3rem;
+  }
+`
 
 export default Container

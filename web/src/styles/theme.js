@@ -19,14 +19,6 @@ export const accent = `#156dff`
 export const baseUnit = '1'
 export const baseMargin = '1.5'
 
-// --color-black: #202123;
-//   --color-dark-gray: #32373e;
-//   --color-gray: #697a90;
-//   --color-light-gray: #b4bcc7;
-//   --color-very-light-gray: #e7ebed;
-//   --color-white: #fff;
-//   --color-accent: #156dff;
-
 export const theme = {
   purple,
   pink,
@@ -42,14 +34,14 @@ export const theme = {
   lightgrey,
   offWhite,
   white,
-  accent: blue,
+  accent: shamrock,
   baseUnit,
   baseMargin,
-  primary: teal,
+  primary: blue,
   secondary: offWhite,
   error: red,
   nprogress: `linear-gradient(90deg, ${pink} 0%, ${shamrock} 100%)`,
-  maxWidth: '1000px',
+  maxWidth: '1100px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   backgroundGradient: `linear-gradient(225deg, ${purple} 0%, ${blue} 100%)`
 };
@@ -59,6 +51,21 @@ export const mediaQueries = {
   maxSmall: '(max-width: 449px)',
   minMedium: '(min-width: 675px)',
   minLarge: '(min-width: 900px)'
+}
+
+export const fontSizes = {
+  micro: '1',
+  small: '1.4',
+  base: '1.6',
+  large: '1.8',
+  xlarge: '2.5'
+}
+
+export const lineHeights = {
+  micro: '1,2',
+  small: '2.1',
+  base: '2.4',
+  large: '2.7'
 }
 
 export default theme;

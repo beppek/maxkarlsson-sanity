@@ -6,9 +6,6 @@ module.exports = () => ({
       features: {
         'color-mod-function': {unresolved: 'warn'},
         'nesting-rules': true,
-        'custom-media-queries': {
-          preserve: false
-        },
         'custom-properties': {
           preserve: false
         }

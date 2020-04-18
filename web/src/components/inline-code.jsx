@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const codeStyles = {
@@ -10,15 +10,12 @@ const codeStyles = {
   borderRadius: '5px',
 }
 
-class InlineCode extends PureComponent {
-  render() {
-    const { value } = this.props
-    return (
-      <code style={codeStyles}>
-        {value}
-      </code>
-    )
-  }
+const InlineCode = ({value}) => {
+  return (
+    <code style={codeStyles}>
+      {value}
+    </code>
+  )
 }
 
 InlineCode.propTypes = {

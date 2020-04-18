@@ -5,11 +5,14 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
+import BlogPostPreviewGrid from '../components/blog/blog-post-grid'
 import Container from '../components/container'
+import BackgroundHeroImage from '../components/hero/background-hero-image'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import { CenteredText } from '../components/layout/layout.styles'
+import { H2 } from '../components/Typography'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -64,8 +67,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
-  const { data, errors } = props
+const IndexPage = ({ data, errors }) => {
 
   if (errors) {
     return (
@@ -89,22 +91,27 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <Layout landingPage>
       <SEO
         title={site.title}
         description={site.description}
         keywords={site.keywords}
       />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/blog/'
-          />
-        )}
-      </Container>
+      <BackgroundHeroImage light>
+        <CenteredText>
+          <H2>Full Stack Developer</H2>
+        </CenteredText>
+      </BackgroundHeroImage>
+        <Container>
+          <h1 hidden>Welcome to {site.title}</h1>
+          {postNodes && (
+            <BlogPostPreviewGrid
+              title='Latest blog posts'
+              nodes={postNodes}
+              browseMoreHref='/blog'
+            />
+          )}
+        </Container>
     </Layout>
   )
 }

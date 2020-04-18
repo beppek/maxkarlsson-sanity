@@ -1,20 +1,26 @@
 import React from 'react'
-import { buildImageObj } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
+import { buildImageObj } from '../../lib/helpers'
+import { imageUrlFor } from '../../lib/image-url'
 
-import styles from './author-list.module.css'
+import { 
+  AuthorListWrapper, 
+  AuthorListHeading, 
+  StyledAuthorList, 
+  AuthorListItem, 
+  AuthorAvatarWrapper 
+} from './blog.styles'
 
 function AuthorList ({ items, title }) {
   return (
-    <div className={styles.root}>
-      <h2 className={styles.headline}>{title}</h2>
-      <ul className={styles.list}>
+    <AuthorListWrapper>
+      <AuthorListHeading>{title}</AuthorListHeading>
+      <StyledAuthorList>
         {items.map(({ author, _key }) => {
           const authorName = author && author.name
           return (
-            <li key={_key} className={styles.listItem}>
+            <AuthorListItem key={_key}>
               <div>
-                <div className={styles.avatar}>
+                <AuthorAvatarWrapper>
                   {author && author.image && author.image.asset && (
                     <img
                       src={imageUrlFor(buildImageObj(author.image))
@@ -25,16 +31,16 @@ function AuthorList ({ items, title }) {
                       alt=''
                     />
                   )}
-                </div>
+                </AuthorAvatarWrapper>
               </div>
               <div>
                 <div>{authorName || <em>Missing name</em>}</div>
               </div>
-            </li>
+            </AuthorListItem>
           )
         })}
-      </ul>
-    </div>
+      </StyledAuthorList>
+    </AuthorListWrapper>
   )
 }
 

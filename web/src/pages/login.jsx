@@ -6,7 +6,7 @@ import { navigate } from 'gatsby';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Container from '../components/container'
-import { H1 } from '../components/Typography'
+import { H2, Paragraph } from '../components/Typography'
 
 function Login() {
   const [username, setEmail] = useState('')
@@ -20,7 +20,7 @@ function Login() {
     }
   }
 
-  function handleFieldChange(value, type) {
+  const handleFieldChange = (value, type) => {
     return type === 'username'
       ? setEmail(value)
       : setPassword(value)
@@ -30,7 +30,7 @@ function Login() {
     <Layout>
       <SEO title="Login" />
       <Container>
-        <H1>Login</H1>
+        <H2>Login</H2>
         <form onSubmit={handleSubmit}>
           <div>
             <TextField onChange={({target: {value}}) => handleFieldChange(value, 'username')} label="Username" />
@@ -42,6 +42,15 @@ function Login() {
             Login
           </Button>
         </form>
+        <Paragraph fontSize="small">
+          All my courses are currently free. By signing up now you ensure that you 
+          always have access to the current catalogue without paying anything, ever. 
+          Even if I decide to start charging for them.
+        </Paragraph>
+        <Paragraph fontSize="small">
+          By providing your email address you agree to sign up for my mailing list. 
+          I promise the emails will be very infrequent and not slimey salesy at all.
+        </Paragraph>
       </Container>
     </Layout>
   )

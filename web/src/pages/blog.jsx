@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
+import BlogPostPreviewGrid from '../components/blog/blog-post-grid'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { H1 } from '../components/Typography'
 
 export const query = graphql`
   query BlogPageQuery {
@@ -51,7 +51,7 @@ const BlogPage = props => {
     <Layout>
       <SEO title='Blog' />
       <Container>
-        <h1 className={responsiveTitle1}>Blog</h1>
+        <H1>Blog</H1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Select from '@material-ui/core/Select';
 
 import { H1, H2, H3 } from '../Typography'
+import { fontSizes, lineHeights, mediaQueries } from '../../styles/theme';
 
 export const Title = styled(H1)`
   margin: 0 auto;

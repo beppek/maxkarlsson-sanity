@@ -4,15 +4,14 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import Button from '@material-ui/core/Button';
 import { Link } from 'gatsby';
 
-import Container from '../container'
 
 import { buildImageObj } from '../../lib/helpers'
 import { imageUrlFor } from '../../lib/image-url'
 
-import styles from '../blog-post.module.css'
 import Lesson from './Lesson';
 
-import {Title, LessonsHeading, LessonSelect, MainImage, SubHeading} from './CourseStyles'
+import {Title, LessonsHeading, LessonSelect, MainImage, SubHeading} from './course.styles'
+import { BlogPostWrapper, Aside } from '../blog/blog.styles';
 
 const Course = ({ authors, categories, publishedAt, lessons, mainImage, level, tags, title }) => {
   const [currentLesson, setCurrentLesson] = useState(0)
@@ -51,9 +50,8 @@ const Course = ({ authors, categories, publishedAt, lessons, mainImage, level, t
     <article>
       <Title>{title}</Title>
       <SubHeading>{currentLesson + 1} – {lessons[currentLesson].title}</SubHeading>
-      <Container>
         
-        <div className={styles.grid}>
+        <BlogPostWrapper>
           <div >
             {heroImage && heroImage.asset && (
               <MainImage>
@@ -100,7 +98,7 @@ const Course = ({ authors, categories, publishedAt, lessons, mainImage, level, t
               </Alert>
             </Snackbar>
           </div>
-          <aside className={styles.metaContent}>
+          <Aside>
             {lessons && (
               <>
                 <LessonsHeading>Lessons</LessonsHeading>
@@ -121,9 +119,8 @@ const Course = ({ authors, categories, publishedAt, lessons, mainImage, level, t
                 </LessonSelect>
               </>
             )}
-          </aside>
-        </div>
-      </Container>
+          </Aside>
+        </BlogPostWrapper>
     </article>
   )
 }

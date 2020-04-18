@@ -4,10 +4,10 @@ import { ThemeProvider as MUIThemeProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
 
 import { theme } from './theme'
-import { muiTheme } from './muiTheme'
+import { muiTheme } from './mui-theme'
 
 const StyledPage = styled.div`
-  background: white;
+  background: ${props => props.theme.white};
   color: ${props => props.theme.black};
 `;
 
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    line-height: 2;
+    line-height: 2,4;
   }
   a {
     text-decoration: none;

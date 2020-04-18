@@ -1,28 +1,28 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import CoursePreview from './CoursePreview'
+import CoursePreview from './course-preview'
 
-import styles from '../blog-post-preview-grid.module.css'
+import { Wrapper, Headline, Grid, BrowseMore } from '../lists/grid.styles'
 
 function CourseList({ browseMoreHref, title, nodes }) {
   console.log('nodes', nodes)
   return (
-    <div className={styles.root}>
-      {title && <h2 className={styles.headline}>{title}</h2>}
-      <ul className={styles.grid}>
+    <Wrapper>
+      {title && <Headline>{title}</Headline>}
+      <Grid>
         {nodes &&
           nodes.map(node => (
             <li key={node.id}>
               <CoursePreview {...node} />
             </li>
           ))}
-      </ul>
+      </Grid>
       {browseMoreHref && (
-        <div className={styles.browseMoreNav}>
+        <BrowseMore>
           <Link to={browseMoreHref}>Browse more</Link>
-        </div>
+        </BrowseMore>
       )}
-    </div>
+    </Wrapper>
   )
 }
 

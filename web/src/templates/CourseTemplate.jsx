@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../containers/layout'
 import SEO from '../components/seo'
+import Container from '../components/container'
 import Course from '../components/course/Course'
 import { toPlainText } from '../lib/helpers'
 import { requireLogin } from '../lib/enforcer'
@@ -38,7 +39,9 @@ function CourseTemplate({ data, errors }) {
       {course && (
         <>
           <SEO title={course.title || 'Untitled'} description={toPlainText(course.excerpt)} image={course.mainImage} />
-          <Course {...course} lessons={lessons} />
+          <Container>
+            <Course {...course} lessons={lessons} />
+          </Container>
         </>
       )}
     </Layout>

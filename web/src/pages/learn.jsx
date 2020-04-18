@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../containers/layout'
-import CourseList from '../components/course/CourseList'
+import CourseList from '../components/course/course-list'
 import SEO from '../components/seo'
 import Container from '../components/container'
-import { responsiveTitle1 } from '../components/typography.module.css'
 import { requireLogin } from '../lib/enforcer'
+import { H1 } from '../components/Typography'
 
 export const query = graphql`
   query AllCourseQuery {
@@ -33,10 +33,10 @@ function CoursesPage({ data }) {
   return (
     <Layout>
       <SEO
-        title={'Courses'}
+        title={'Learn'}
       />
       <Container>
-        <h1 className={responsiveTitle1}>Courses</h1>
+        <H1>Learn</H1>
         <CourseList
           nodes={courseNodes}
         />

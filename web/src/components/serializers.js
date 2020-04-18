@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CodeBlock from './CodeBlock'
-import InlineCode from './InlineCode'
+import CodeBlock from './code-block'
+import InlineCode from './inline-code'
 import Figure from './Figure'
 
 const serializers = {
