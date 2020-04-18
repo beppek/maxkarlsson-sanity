@@ -5,6 +5,7 @@
  */
 
 const { format } = require('date-fns')
+const config = require('./config')
 
 async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions
@@ -39,31 +40,31 @@ async function createBlogPostPages(graphql, actions, reporter) {
   const postEdges = (result.data.allSanityPost || {}).edges || []
   const courses = (result.data.allSanityCourse || {}).nodes || []
 
-  postEdges
-    .forEach((edge, index) => {
-      const { id, slug = {}, publishedAt } = edge.node
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/blog/${dateSegment}/${slug.current}/`
-
-      reporter.info(`Creating blog post page: ${path}`)
-
-      createPage({
-        path,
-        component: require.resolve('./src/templates/blog-post.js'),
-        context: { id }
-      })
-    })
-
   courses
     .forEach((course, index) => {
       const { id, slug = {} } = course
-      const path = `/courses/${slug.current}/`
+      const path = `/${config.routes.learn}/${slug.current}/`
 
       reporter.info(`Creating coure page: ${path}`)
 
       createPage({
         path,
         component: require.resolve('./src/templates/CourseTemplate.jsx'),
+        context: { id }
+      })
+    })
+
+  postEdges
+    .forEach((edge, index) => {
+      const { id, slug = {}, publishedAt } = edge.node
+      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const path = `/${config.routes.blog}/${dateSegment}/${slug.current}/`
+
+      reporter.info(`Creating blog post page: ${path}`)
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/blog-post.jsx'),
         context: { id }
       })
     })
