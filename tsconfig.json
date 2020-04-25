@@ -3,13 +3,9 @@
     "noEmit": true,
     "allowJs": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "baseUrl": "web/src",
     "target": "es5",
-    "lib": [
-      "es2015",
-      "es2017",
-      "DOM"
-    ],
+    "lib": ["es2019", "DOM"],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -17,12 +13,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "sourceMap": true
   },
-  "include": [
-    "."
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["."],
+  "exclude": ["node_modules"]
 }
