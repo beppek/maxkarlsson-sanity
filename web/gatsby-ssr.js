@@ -1,7 +1,8 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import { GlobalStyles } from './src/styles/global';
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => (
+  <GlobalStyles>{element}</GlobalStyles>
+);

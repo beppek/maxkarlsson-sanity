@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import 'typeface-roboto';
+import { GlobalStyles } from './src/styles/global';
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => (
+  <GlobalStyles>{element}</GlobalStyles>
+);

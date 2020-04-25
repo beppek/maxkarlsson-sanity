@@ -15,6 +15,28 @@
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.4",
-    "lerna": "^3.20.2"
+    "@types/react": "^16.9.25",
+    "@types/styled-components": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "babel": "^6.23.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "lerna": "^3.20.2",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3",
+    "typescript-eslint": "0.0.1-alpha.0"
+  },
+  "dependencies": {
+    "react-syntax-highlighter": "^12.2.1"
   }
 }
