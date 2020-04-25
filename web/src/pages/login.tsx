@@ -14,6 +14,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (typeof window !== undefined) return;
     if (username === 'student' && password === 'test') {
       localStorage.setItem('authenticated', 'true');
       navigate('/courses');
