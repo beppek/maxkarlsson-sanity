@@ -17,7 +17,7 @@ const StyledPage = styled.div`
   color: ${theme.black};
 `;
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Pixel Operator';
@@ -51,11 +51,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   body {
-    font-family: 'Pixel Operator', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Pixel Operator', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     padding: 0;
     margin: 0;
     font-size: ${fontSizes.base}rem;
-    line-height: 2,4;
+    line-height: 1.3;
   }
   h1,h2,h3,h4,h5,h6 {
     text-transform: uppercase;
@@ -92,9 +92,9 @@ const GlobalStyle = createGlobalStyle`
 
 export const GlobalStyles = (props: any) => (
   <>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Provider>
+        <GlobalStyle />
         <StyledPage {...props} />
       </Provider>
     </ThemeProvider>
