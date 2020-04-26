@@ -73,7 +73,7 @@ export const BlogPostContent = styled.div<BlogPostContentProps>`
     }
   }
 
- & p, ul, li, span {
+ & p, ul, li {
    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
    color: ${(props) => props.foreground || props.theme.black};
  }
