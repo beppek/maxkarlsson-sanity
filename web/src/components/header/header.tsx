@@ -46,9 +46,9 @@ const Header = ({
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/learn">Learn</Link>
-            </li>
+            </li> */}
             {/* <li>
             <Link to='/portfolio'>Portfolio</Link>
           </li> */}
