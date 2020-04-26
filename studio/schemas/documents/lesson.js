@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { IoIosBook } from 'react-icons/io'
 
 export default {
@@ -130,7 +130,7 @@ export default {
       media: 'mainImage'
     },
     prepare({ title = 'No title', publishedAt, slug = {}, media }) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
         title,

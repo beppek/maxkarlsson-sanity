@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { FaChalkboardTeacher } from 'react-icons/fa'
 
 export default {
@@ -17,7 +17,8 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description:
+        'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
         maxLength: 96
@@ -131,7 +132,7 @@ export default {
       media: 'mainImage'
     },
     prepare({ title = 'No title', publishedAt, slug = {}, media }) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const dateSegment = format(parseISO(publishedAt), 'yyyy/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
         title,
