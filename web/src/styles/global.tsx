@@ -1,18 +1,48 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { ThemeProvider as MUIThemeProvider } from '@material-ui/styles';
-import { CssBaseline } from '@material-ui/core';
 
-import { theme, Theme, fontSizes } from './theme';
-import { muiTheme } from './mui-theme';
 import { Provider } from '../state/context';
+import { theme, fontSizes } from './theme';
+import {
+  PixelOperatorWoff,
+  PixelOperatorWoff2,
+  PixelOperatorBoldWoff,
+  PixelOperatorBoldWoff2,
+  PixelOperator8Woff,
+  PixelOperator8Woff2,
+} from './fonts';
 
-const StyledPage = styled.div<{ theme: Theme }>`
-  background: ${(props) => props.theme.white};
-  color: ${(props) => props.theme.black};
+const StyledPage = styled.div`
+  background: ${theme.white};
+  color: ${theme.black};
 `;
 
 const GlobalStyle = createGlobalStyle`
+
+  @font-face {
+    font-family: 'Pixel Operator';
+    src: url('${PixelOperatorBoldWoff2}') format('woff2'),
+      url('${PixelOperatorBoldWoff}') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pixel Operator';
+    src: url('${PixelOperatorWoff2}') format('woff2'),
+      url('${PixelOperatorWoff}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pixel Operator 8';
+    src: url('${PixelOperator8Woff2}') format('woff2'),
+      url('${PixelOperator8Woff}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   html {
     box-sizing: border-box;
     font-size: 10px; 
@@ -58,139 +88,15 @@ const GlobalStyle = createGlobalStyle`
     border-left-color: ${theme.nprogress};
   }
 
-  @font-face {
-      font-family: 'Pixel Operator';
-      src: url('/fonts/PixelOperator-Bold.woff2') format('woff2'),
-          url('/fonts/PixelOperator-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Pixel Operator Mono 8';
-    src: url('/fonts/PixelOperatorMono8-Bold.woff2') format('woff2'),
-        url('/fonts/PixelOperatorMono8-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator Mono';
-      src: url('/fonts/PixelOperatorMono.woff2') format('woff2'),
-          url('/fonts/PixelOperatorMono.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  
-
-  @font-face {
-      font-family: 'Pixel Operator Mono 8';
-      src: url('/fonts/PixelOperatorMono8.woff2') format('woff2'),
-          url('/fonts/PixelOperatorMono8.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator SC';
-      src: url('/fonts/PixelOperatorSC-Bold.woff2') format('woff2'),
-          url('/fonts/PixelOperatorSC-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator HB';
-      src: url('/fonts/PixelOperatorHB.woff2') format('woff2'),
-          url('/fonts/PixelOperatorHB.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator HB 8';
-      src: url('/fonts/PixelOperatorHB8.woff2') format('woff2'),
-          url('/fonts/PixelOperatorHB8.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator Mono HB 8';
-      src: url('/fonts/PixelOperatorMonoHB8.woff2') format('woff2'),
-          url('/fonts/PixelOperatorMonoHB8.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator';
-      src: url('/fonts/PixelOperator.woff2') format('woff2'),
-          url('/fonts/PixelOperator.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator 8';
-      src: url('/fonts/PixelOperator8.woff2') format('woff2'),
-          url('/fonts/PixelOperator8.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator SC';
-      src: url('/fonts/PixelOperatorSC.woff2') format('woff2'),
-          url('/fonts/PixelOperatorSC.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator Mono';
-      src: url('/fonts/PixelOperatorMono-Bold.woff2') format('woff2'),
-          url('/fonts/PixelOperatorMono-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator Mono HB';
-      src: url('/fonts/PixelOperatorMonoHB.woff2') format('woff2'),
-          url('/fonts/PixelOperatorMonoHB.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator 8';
-      src: url('/fonts/PixelOperator8-Bold.woff2') format('woff2'),
-          url('/fonts/PixelOperator8-Bold.woff') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'Pixel Operator HB SC';
-      src: url('/fonts/PixelOperatorHBSC.woff2') format('woff2'),
-          url('/fonts/PixelOperatorHBSC.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-
 `;
 
 export const GlobalStyles = (props: any) => (
-  <ThemeProvider theme={theme}>
-    <MUIThemeProvider theme={muiTheme}>
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
       <Provider>
-        <CssBaseline />
-        <GlobalStyle />
         <StyledPage {...props} />
       </Provider>
-    </MUIThemeProvider>
-  </ThemeProvider>
+    </ThemeProvider>
+  </>
 );

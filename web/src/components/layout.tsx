@@ -5,8 +5,6 @@ import { mediaQueries, fontSizes, lineHeights } from '../styles/theme';
 
 import Header from './header/header';
 
-// import { GlobalStyles } from '../styles/global';
-
 const ContentWrapper = styled.div`
   background: ${(props) => props.theme.white};
   min-height: calc(100vh - 82px - 77px);
@@ -64,7 +62,6 @@ const Layout = ({
   siteTitle,
 }: LayoutProps) => (
   <>
-    {/* <GlobalStyles> */}
     <Header
       siteTitle={siteTitle}
       onHideNav={onHideNav}
@@ -77,7 +74,6 @@ const Layout = ({
         <SiteInfo>&copy; {new Date().getFullYear()} Max Karlsson</SiteInfo>
       </FooterInnerWrapper>
     </Footer>
-    {/* </GlobalStyles> */}
   </>
 );
 
