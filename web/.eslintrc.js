@@ -22,5 +22,6 @@ module.exports = {
     '@typescript-eslint/no-dupe-class-members': 'off',
     '@typescript-eslint/no-implied-eval': 'off',
     '@typescript-eslint/no-throw-literal': 'off',
+    'no-underscore-dangle': 'off',
   },
 };
