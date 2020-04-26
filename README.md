@@ -1,38 +1,9 @@
 # maxkarlsson.dev
 
-_Fully customizable blog template with a React.js front-end._
+This is the code for my personal site. It started out as a gatsby-sanity starter, but not much of that code is still left.
 
-Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-gatsby-blog).
+Like any developer, I'm opinionated about the code I work with, and even more so when it comes to my personal site. Originally I just wanted to get up and running quickly, so I used the starter. However, as is always the case when I've used a Gatsby starter, I found a lot of things I disliked about the code. Don't get me wrong, I got a lot of inspiration and ideas and learnt a thing or two from the implementation, I just didn't like the approach, and for my personal site I wanted to have my personal preferences for absolutely everything.
 
-## What you have
+In my experience after starting about 511 Gatsby sites to use as my personal blog, if I don't like the code, I won't do any work on the site and soon it just fades away into that place on the internet where all the other projects developers have started and then forgotten about.
 
-- A blazing fast blog with [Gatsby.js](https://gatsbyjs.org)
-- Structured content using [Sanity.io](https://www.sanity.io)
-- Global deployment on [Netlify](https://netlify.com)
-
-## Quick start
-
-1. Clone this repository
-2. `npm install` in the project root folder on local
-3. `npm run dev` to start the studio and frontend locally
-   - Your studio should be running on [http://localhost:3333](http://localhost:3333)
-   - Your frontend should be running on [http://localhost:8000](http://localhost:8000)
-4. `npm run build` to build to production locally
-
-## Enable real-time content preview on development
-
-1. Go to your [project’s API settings on manage.sanity.io](https://manage.sanity.io/projects/hytow8kc/settings/api) and create a token with read rights.
-2. Rename `.env.development.template` to `.env.development` and paste in the token: `SANITY_READ_TOKEN="yourTokenHere"`.
-3. Restart the development server (`ctrl + C` and `npm run dev`).
-
-If you want to turn off preview you can set `watchMode: false` in gatsby-config.js. If you just want to preview published changes you can set `overlayDrafts: false` in gatsby-config.js.
-
-## Deploy changes
-
-Netlify automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Netlify](https://www.netlify.com/docs/continuous-deployment/#branches-deploys).
-
-## Stuck? Get help
-
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
-
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+So this time I decided to do something about it. I tore through the code with sledgehammer and blowtorch, I rummaged through files, tore down functions and burnt every single `.css` file I could find. In the end I ended up with what can be found in the `./web` folder. I converted the whole site to TypeScript and replaced all the postcss with styled components. Thhe result is a site built with exactly the tech _I_ love and use, something I can continue to work on for a long time to come.
