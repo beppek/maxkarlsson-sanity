@@ -21,7 +21,7 @@ export const Wrapper = styled.div<WrapperProps>`
   box-sizing: border-box;
   font-family: 'Pixel Operator 8';
   margin: 0 auto;
-  padding: 0 1rem 0 2rem;
+  padding: 0 1rem;
   display: flex;
   height: 100%;
   background: ${(props) => props.backgroundColor || 'transparent'};
@@ -98,7 +98,7 @@ export const Branding = styled.div<BrandingProps>`
 
     & svg {
       vertical-align: middle;
-      height: 5rem;
+      height: 4rem;
     }
   }
 `;

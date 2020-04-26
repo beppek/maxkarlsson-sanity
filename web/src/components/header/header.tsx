@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Icon from '../icon';
 
-import Logo from '../../../static/logo.svg';
+import Logo from '../../../static/logo3.svg';
 
 import { Root, Wrapper, Branding, ToggleNavButton, Nav } from './header-styles';
 import { useColors } from '../../hooks/use-global-colors';
