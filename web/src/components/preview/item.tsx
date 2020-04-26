@@ -57,7 +57,7 @@ const PreviewItem = ({
             </Excerpt>
           )}
           <PublishDate>
-            {format(parseISO(publishedAt), 'MMMM Do, yyyy')}
+            {format(parseISO(publishedAt), 'MMMM do, yyyy')}
           </PublishDate>
         </TextWrapper>
       </StyledLink>
