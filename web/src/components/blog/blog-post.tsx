@@ -67,7 +67,7 @@ function BlogPost({
             date={
               differenceInDays(parseISO(publishedAt), new Date()) > 3
                 ? formatDistance(parseISO(publishedAt), new Date())
-                : format(parseISO(publishedAt), 'MMMM Do, yyyy')
+                : format(parseISO(publishedAt), 'MMMM do, yyyy')
             }
           />
         )}
