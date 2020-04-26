@@ -1,6 +1,11 @@
 import styled, { keyframes, css } from 'styled-components';
 
-import { mediaQueries, fontSizes, lineHeights } from '../../styles/theme';
+import {
+  mediaQueries,
+  fontSizes,
+  lineHeights,
+  Theme,
+} from '../../styles/theme';
 
 export const Article = styled.article`
   min-height: 100vh;
@@ -19,7 +24,6 @@ export const MainImageWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    /* vertical-align: top; */
     object-fit: cover;
   }
 `;
@@ -27,9 +31,8 @@ export const MainImageWrapper = styled.div`
 export const BlogPostWrapper = styled.div`
   @media ${mediaQueries.minMedium} {
     display: grid;
-    grid-template-columns: 1fr;
     grid-column-gap: 2em;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
   }
 `;
 
@@ -42,7 +45,14 @@ export const dissolvingUnderline = keyframes`
   }
 `;
 
-export const BlogPostContent = styled.div`
+type BlogPostContentProps = {
+  theme: Theme;
+  accentColor?: string;
+  foreground?: string;
+};
+
+export const BlogPostContent = styled.div<BlogPostContentProps>`
+  line-height: ${lineHeights.small};
   & a {
     color: ${(props) => props.accentColor || props.theme.blue};
     font-weight: 600;
@@ -65,6 +75,7 @@ export const BlogPostContent = styled.div`
 
  & p, ul, li, span {
    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+   color: ${(props) => props.foreground || props.theme.black};
  }
 
   & h2,
