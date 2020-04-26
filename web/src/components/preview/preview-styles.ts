@@ -64,7 +64,7 @@ export const Excerpt = styled.div`
   }
 `;
 
-export const Date = styled.div<{ theme: Theme }>`
+export const PublishDate = styled.div<{ theme: Theme }>`
   font-size: ${fontSizes.small};
   line-height: ${lineHeights.small};
   color: ${(props) => props.theme.grey};

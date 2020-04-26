@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { format, distanceInWords, differenceInDays } from 'date-fns';
+import { format, formatDistance, differenceInDays, parseISO } from 'date-fns';
 
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
@@ -65,9 +65,9 @@ function BlogPost({
             title={title}
             author={authors[0].author}
             date={
-              differenceInDays(new Date(publishedAt), new Date()) > 3
-                ? distanceInWords(new Date(publishedAt), new Date())
-                : format(new Date(publishedAt), 'MMMM Do, YYYY')
+              differenceInDays(parseISO(publishedAt), new Date()) > 3
+                ? formatDistance(parseISO(publishedAt), new Date())
+                : format(parseISO(publishedAt), 'MMMM Do, yyyy')
             }
           />
         )}

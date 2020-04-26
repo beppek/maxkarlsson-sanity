@@ -1,5 +1,5 @@
 import React from 'react';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
@@ -7,7 +7,7 @@ import { imageUrlFor } from '../../lib/image-url';
 import {
   LeadMediaThumb,
   Excerpt,
-  Date,
+  PublishDate,
   StyledLink,
   Wrapper,
   TextWrapper,
@@ -56,7 +56,9 @@ const PreviewItem = ({
               <PortableText blocks={excerpt} />
             </Excerpt>
           )}
-          <Date>{format(publishedAt, 'MMMM Do, YYYY')}</Date>
+          <PublishDate>
+            {format(parseISO(publishedAt), 'MMMM Do, yyyy')}
+          </PublishDate>
         </TextWrapper>
       </StyledLink>
     </Wrapper>

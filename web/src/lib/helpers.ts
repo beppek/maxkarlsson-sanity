@@ -1,4 +1,4 @@
-import { format, isFuture } from 'date-fns';
+import { format, isFuture, parseISO } from 'date-fns';
 import config from '../../config';
 
 export function cn(...args: any[]) {
@@ -18,8 +18,8 @@ export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
   return !isFuture(publishedAt);
 }
 
-export function getBlogUrl(publishedAt: string | number | Date, slug: any) {
-  return `/${config.routes.blog}/${format(publishedAt, 'YYYY/MM')}/${
+export function getBlogUrl(publishedAt: string, slug: any) {
+  return `/${config.routes.blog}/${format(parseISO(publishedAt), 'yyyy/MM')}/${
     slug.current || slug
   }`;
 }

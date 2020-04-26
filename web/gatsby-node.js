@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const { format } = require('date-fns');
+const { format, parseISO } = require('date-fns');
 const config = require('./config');
 
 async function createBlogPostPages(graphql, actions, reporter) {
@@ -57,7 +57,8 @@ async function createBlogPostPages(graphql, actions, reporter) {
 
   postEdges.forEach(edge => {
     const { id, slug = {}, publishedAt } = edge.node;
-    const dateSegment = format(publishedAt, 'YYYY/MM');
+    console.log('publishedAt', publishedAt);
+    const dateSegment = format(parseISO(publishedAt), 'yyyy/MM');
     const path = `/${config.routes.blog}/${dateSegment}/${slug.current}/`;
 
     reporter.info(`Creating blog post page: ${path}`);
