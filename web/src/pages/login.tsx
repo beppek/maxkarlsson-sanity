@@ -1,4 +1,7 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
+export default function() {
+  return null;
+}
 // import TextField from '@material-ui/core/TextField';
 // import Button from '@material-ui/core/Button';
 // import { navigate } from 'gatsby';
