@@ -6,8 +6,6 @@ import { theme, fontSizes } from './theme';
 import {
   PixelOperatorWoff,
   PixelOperatorWoff2,
-  PixelOperatorBoldWoff,
-  PixelOperatorBoldWoff2,
   PixelOperator8Woff,
   PixelOperator8Woff2,
 } from './fonts';
@@ -21,18 +19,11 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Pixel Operator';
-    src: url('${PixelOperatorBoldWoff2}') format('woff2'),
-      url('${PixelOperatorBoldWoff}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Pixel Operator';
     src: url('${PixelOperatorWoff2}') format('woff2'),
       url('${PixelOperatorWoff}') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
@@ -41,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
       url('${PixelOperator8Woff}') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
   html {
