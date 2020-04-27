@@ -9,7 +9,7 @@ const query = graphql`
     desktop: allFile {
       nodes {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(quality: 90, maxWidth: 1200) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
