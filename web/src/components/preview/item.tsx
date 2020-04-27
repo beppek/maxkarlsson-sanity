@@ -41,8 +41,8 @@ const PreviewItem = ({
           {mainImage && mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(mainImage))
-                .width(600)
-                .height(Math.floor((9 / 16) * 600))
+                .width(400)
+                .height(Math.floor((9 / 16) * 400))
                 .auto('format')
                 .url()}
               alt={mainImage.alt}
