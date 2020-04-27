@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Select from '@material-ui/core/Select';
+// import Select from '@material-ui/core/Select';
 
 import { Theme } from '../../styles/theme';
 import { H1, H2, H3 } from '../typography';
@@ -25,7 +25,8 @@ export const LessonsHeading = styled(H3)<{ theme: Theme }>`
     ${(props) => (props.theme.baseMargin ? props.theme.baseMargin : '1')}rem;
 `;
 
-export const LessonSelect = styled(Select)<{ theme: Theme }>`
+// export const LessonSelect = styled(Select)<{ theme: Theme }>`
+export const LessonSelect = styled.select<{ theme: Theme }>`
   margin-left: ${(props) =>
     props.theme.baseMargin ? props.theme.baseMargin : '1'}rem;
 `;
