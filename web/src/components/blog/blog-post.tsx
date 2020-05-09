@@ -63,7 +63,7 @@ function BlogPost({
               .url()}
             imageMetadata={mainImage?.asset?.metadata}
             title={title}
-            author={authors[0].author}
+            author={authors[0]?.author}
             date={
               differenceInDays(parseISO(publishedAt), new Date()) > 3
                 ? formatDistance(parseISO(publishedAt), new Date())
