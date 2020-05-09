@@ -23,12 +23,10 @@ type ProviderProps = {
   children: ReactElement | ReactElement[];
 };
 
-export enum DispatchActions {
+export enum Actions {
   toggleAbout = 'toggleAbout',
   setColor = 'setColor',
 }
-
-type Actions = DispatchActions.toggleAbout | DispatchActions.setColor;
 
 type ColorPayload = {
   type: ThemeColors;
@@ -38,8 +36,8 @@ type ColorPayload = {
 type Payload = string | ColorPayload;
 
 type Action =
-  | { type: DispatchActions.toggleAbout; payload: Payload }
-  | { type: DispatchActions.setColor; payload: Payload };
+  | { type: Actions.toggleAbout; payload: Payload }
+  | { type: Actions.setColor; payload: Payload };
 
 type ActionFunction = (state: State, payload: Payload) => State;
 

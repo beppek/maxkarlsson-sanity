@@ -1,6 +1,6 @@
 import { useContext, useCallback } from 'react';
 import { ThemeColors } from '../styles/theme';
-import { Context, DispatchActions, ContextColors } from '../state/context';
+import { Context, Actions, ContextColors } from '../state/context';
 
 export type ColorActions = {
   setColor: (type: ThemeColors, value: string) => void;
@@ -11,7 +11,7 @@ export function useColors(): { colors: ContextColors; actions: ColorActions } {
 
   const setColor = useCallback(
     (type: ThemeColors, value: string) =>
-      dispatch({ type: DispatchActions.setColor, payload: { type, value } }),
+      dispatch({ type: Actions.setColor, payload: { type, value } }),
     [],
   );
 
