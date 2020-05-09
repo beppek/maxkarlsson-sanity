@@ -1,11 +1,13 @@
-import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdPerson, MdCollectionsBookmark } from 'react-icons/md'
-import { FaBlog } from 'react-icons/fa'
-import { GiTeacher } from 'react-icons/gi'
-import { IoIosBook } from 'react-icons/io'
+import S from '@sanity/desk-tool/structure-builder';
+import { MdSettings, MdPerson, MdCollectionsBookmark } from 'react-icons/md';
+import { FaBlog } from 'react-icons/fa';
+import { GiTeacher } from 'react-icons/gi';
+import { IoIosBook } from 'react-icons/io';
 
 const hiddenDocTypes = listItem =>
-  !['category', 'author', 'post', 'siteSettings', 'course', 'lesson'].includes(listItem.getId())
+  !['category', 'author', 'post', 'siteSettings', 'course', 'lesson'].includes(
+    listItem.getId(),
+  );
 
 export default () =>
   S.list()
@@ -18,13 +20,18 @@ export default () =>
           S.editor()
             .id('siteSettings')
             .schemaType('siteSettings')
-            .documentId('siteSettings')
+            .documentId('siteSettings'),
         ),
       S.listItem()
         .title('Blog posts')
         .schemaType('post')
         .icon(FaBlog)
         .child(S.documentTypeList('post').title('Blog posts')),
+      S.listItem()
+        .title('Quick tips')
+        .schemaType('quickTip')
+        .icon(FaBlog)
+        .child(S.documentTypeList('quickTip').title('Quick tip')),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
@@ -48,5 +55,5 @@ export default () =>
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
-    ])
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
+    ]);

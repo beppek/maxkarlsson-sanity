@@ -11,6 +11,7 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import course from './documents/course'
 import lesson from './documents/lesson'
+import quickTip from './documents/quickTip'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -31,6 +32,7 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    quickTip,
     category,
     author,
     course,
