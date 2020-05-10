@@ -68,7 +68,7 @@ function reducer(state: State, action: Action): State {
   return actions[action.type](state, action.payload) || state;
 }
 
-export function Provider({ children }: ProviderProps) {
+export function Provider({ children }: ProviderProps): JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <Context.Provider
