@@ -14,7 +14,7 @@ const serializers = {
     authorReference: ({ node }: any) => <span>{node.author.name}</span>,
     mainImage: Figure,
     code: ({ node }: any) => {
-      const extension = node.filename.split('.')[1];
+      const extension = node.filename?.split('.')?.[1];
       const language = extensionToLanguageMapper[extension] || node.language;
       return <CodeBlock language={language} value={node.code} />;
     },
