@@ -1,4 +1,5 @@
 import { format, isFuture } from 'date-fns'
+import { NotStringError } from '../shared/errors'
 
 export function cn (...args) {
   return args.filter(Boolean).join(' ')
@@ -44,4 +45,9 @@ export function toPlainText (blocks) {
       return block.children.map(child => child.text).join('')
     })
     .join('\n\n')
+}
+
+export const capitalize = (s) => {
+  if (typeof s !== 'string') throw new NotStringError('Parameter is not of type string!')
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }

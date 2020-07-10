@@ -12,6 +12,7 @@ export const query = graphql`
     post: sanityPost(id: {eq: $id}) {
       id
       publishedAt
+      level
       categories {
         _id
         title
@@ -60,6 +61,7 @@ export const query = graphql`
 
 const BlogPostTemplate = ({ data, errors }) => {
   const post = data && data.post
+  console.log('post.level', post.level)
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}

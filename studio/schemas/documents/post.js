@@ -73,6 +73,27 @@ export default {
       }
     },
     {
+      name: 'level',
+      title: 'Level',
+      type: 'string',
+      options: {
+        list: [
+          {
+            value: 'beginner',
+            title: 'Beginner'
+          },
+          {
+            value: 'intermediate',
+            title: 'Intermediate'
+          },
+          {
+            value: 'advanced',
+            title: 'Advanced'
+          }
+        ]
+      }
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'

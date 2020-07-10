@@ -1,6 +1,6 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
-import { buildImageObj } from '../lib/helpers'
+import { buildImageObj, capitalize } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import PortableText from './portableText'
 import Container from './container'
@@ -9,7 +9,7 @@ import AuthorList from './author-list'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-  const { _rawBody, authors, categories, title, mainImage, publishedAt, tags } = props
+  const { _rawBody, authors, categories, title, mainImage, publishedAt, tags, level } = props
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -48,6 +48,12 @@ function BlogPost (props) {
                     <li key={category._id}>{category.title}</li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {level && (
+              <div className={styles.categories}>
+                <h3 className={styles.categoriesHeadline}>Level</h3>
+                {capitalize(level)}
               </div>
             )}
             {tags && (
