@@ -32,8 +32,8 @@ const PreviewItem = ({
   link,
   displayType,
 }: PreviewItemProps) => {
-  const color = mainImage.asset.metadata.palette.muted.background;
-  const shadow = color.length > 4 ? `${color}40` : `${color}4`;
+  const color = mainImage?.asset?.metadata?.palette?.muted?.background;
+  const shadow = color?.length > 4 ? `${color}40` : `${color}4`;
   return (
     <Wrapper color={color} shadow={shadow}>
       <StyledLink displayType={displayType} to={link}>
