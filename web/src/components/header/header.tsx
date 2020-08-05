@@ -37,7 +37,10 @@ const Header = ({
           </Link>
         </Branding>
 
-        <ToggleNavButton onClick={showNav ? onHideNav : onShowNav}>
+        <ToggleNavButton
+          name="toggle-navigation"
+          onClick={showNav ? onHideNav : onShowNav}
+        >
           <Icon symbol="hamburger" />
         </ToggleNavButton>
 

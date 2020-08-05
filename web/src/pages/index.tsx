@@ -1,11 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture,
-  buildImageObj,
-} from '../lib/helpers';
+import { buildImageObj } from '../lib/helpers';
 import BlogPostPreviewGrid from '../components/blog/blog-post-grid';
 import Container from '../components/container';
 import BackgroundHeroImage from '../components/hero/background-hero-image';
@@ -19,6 +14,7 @@ import { imageUrlFor } from '../lib/image-url';
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
+    alt
     crop {
       _key
       _type
@@ -90,7 +86,7 @@ const IndexPage = ({ data, errors }: Props) => {
                   .height(100)
                   .fit('crop')
                   .url()}
-                alt={author.alt}
+                alt={author.image.alt}
                 color={author.image.asset.metadata.palette.muted.background}
               />
               <H2 fontSize="xxlarge">Full Stack Developer</H2>
