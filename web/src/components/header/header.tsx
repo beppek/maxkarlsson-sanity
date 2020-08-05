@@ -38,7 +38,8 @@ const Header = ({
         </Branding>
 
         <ToggleNavButton
-          name="Toggle navigation"
+          aria-label="Toggle navigation"
+          name="toggle-navigation"
           onClick={showNav ? onHideNav : onShowNav}
         >
           <Icon symbol="hamburger" />
