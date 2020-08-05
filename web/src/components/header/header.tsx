@@ -38,7 +38,7 @@ const Header = ({
         </Branding>
 
         <ToggleNavButton
-          name="toggle-navigation"
+          name="Toggle navigation"
           onClick={showNav ? onHideNav : onShowNav}
         >
           <Icon symbol="hamburger" />
