@@ -45,12 +45,14 @@ const query = graphql`
 
 const BlogPostPreviewGrid = ({
   title = '',
-  // nodes = [],
+  nodes = [],
   browseMoreHref = '',
 }: BlogPostPreviewGridProps) => {
   const data = useStaticQuery(query);
 
-  const nodes = (data || {}).posts
+  const postNodes = nodes.length
+    ? nodes
+    : (data || {}).posts
     ? mapEdgesToNodes(data.posts)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
@@ -60,8 +62,8 @@ const BlogPostPreviewGrid = ({
     <Wrapper>
       {title && <Headline>{title}</Headline>}
       <Grid>
-        {nodes &&
-          nodes.map((node) => (
+        {postNodes &&
+          postNodes.map((node) => (
             <li key={node.id}>
               <BlogPostPreview {...node} />
             </li>
