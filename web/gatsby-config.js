@@ -10,10 +10,21 @@ const clientConfig = require('./client-config');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://maxkarlsson.dev`,
+  },
   plugins: [
     'gatsby-plugin-typescript',
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://maxkarlsson.dev',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -116,7 +127,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "none",
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Setting this parameter is optional
@@ -124,7 +135,7 @@ module.exports = {
         // Setting this parameter is also optional
         respectDNT: true,
         // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**"],
+        exclude: ['/preview/**'],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
         // Enables Google Optimize using your container Id
@@ -138,7 +149,7 @@ module.exports = {
         // Any additional optional fields
         // sampleRate: 5,
         // siteSpeedSampleRate: 10,
-        cookieDomain: "maxkarlsson.dev",
+        cookieDomain: 'maxkarlsson.dev',
       },
     },
   ],
