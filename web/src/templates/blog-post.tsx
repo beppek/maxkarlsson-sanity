@@ -6,6 +6,7 @@ import BlogPost from '../components/blog/blog-post';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 import { toPlainText } from '../lib/helpers';
+import BlogPostPreviewGrid from '../components/blog/blog-post-grid';
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
@@ -60,6 +61,25 @@ export const query = graphql`
         }
       }
     }
+    posts: allSanityPost(
+      limit: 7
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+    ) {
+      nodes {
+        id
+        publishedAt
+        mainImage {
+          ...SanityImage
+          alt
+        }
+        title
+        _rawExcerpt
+        slug {
+          current
+        }
+      }
+    }
   }
 `;
 
@@ -69,7 +89,10 @@ type BlogPostTemplateProps = {
 };
 
 const BlogPostTemplate = ({ data, errors }: BlogPostTemplateProps) => {
-  const post = data && data.post;
+  const post = data?.post;
+  const morePosts = data?.posts?.nodes
+    ?.filter((node: { id: string }) => node.id !== post.id)
+    .slice(0, 6);
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
@@ -88,6 +111,13 @@ const BlogPostTemplate = ({ data, errors }: BlogPostTemplateProps) => {
       )}
 
       {post && <BlogPost {...post} />}
+      <Container>
+        <BlogPostPreviewGrid
+          nodes={morePosts}
+          title="More from the blog"
+          browseMoreHref="/blog"
+        />
+      </Container>
     </Layout>
   );
 };

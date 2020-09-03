@@ -111,12 +111,6 @@ function BlogPost({
           </BlogPostWrapper>
         </Container>
       </Article>
-      <Container>
-        <BlogPostPreviewGrid
-          title="More from the blog"
-          browseMoreHref="/blog"
-        />
-      </Container>
     </>
   );
 }
