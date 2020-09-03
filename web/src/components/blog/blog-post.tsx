@@ -27,6 +27,7 @@ type BlogPostProps = {
   title: string;
   mainImage: any;
   publishedAt: any;
+  updatedAt: any;
   tags: any;
 };
 
@@ -37,6 +38,7 @@ function BlogPost({
   title,
   mainImage,
   publishedAt,
+  updatedAt,
   tags,
 }: BlogPostProps) {
   const { actions, colors } = useColors();
@@ -64,10 +66,17 @@ function BlogPost({
             imageMetadata={mainImage?.asset?.metadata}
             title={title}
             author={authors[0]?.author}
-            date={
+            publishedAt={
               differenceInDays(parseISO(publishedAt), new Date()) > 3
                 ? formatDistance(parseISO(publishedAt), new Date())
                 : format(parseISO(publishedAt), 'MMMM do, yyyy')
+            }
+            updatedAt={
+              differenceInDays(parseISO(updatedAt), parseISO(publishedAt)) < 1
+                ? null
+                : differenceInDays(parseISO(updatedAt), new Date()) > 3
+                ? formatDistance(parseISO(updatedAt), new Date())
+                : format(parseISO(updatedAt), 'MMMM do, yyyy')
             }
           />
         )}

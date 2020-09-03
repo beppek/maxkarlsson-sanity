@@ -8,7 +8,8 @@ type Props = {
   imageMetadata?: any;
   src: string;
   title: string;
-  date: string;
+  publishedAt: string;
+  updatedAt: string;
   author: any;
 };
 
@@ -59,7 +60,8 @@ export const BlogBackgroundHeroImage = ({
   src,
   imageMetadata,
   title,
-  date,
+  publishedAt,
+  updatedAt,
   author,
 }: Props) => {
   const color = imageMetadata.palette.muted.title;
@@ -86,7 +88,10 @@ export const BlogBackgroundHeroImage = ({
             />
           )}
           <H1>{title}</H1>
-          <Paragraph fontSize="base">{date}</Paragraph>
+          <Paragraph fontSize="base">
+            Published: {publishedAt}
+            {updatedAt && `. Updated: ${updatedAt}`}
+          </Paragraph>
         </div>
       </HeroContentWrapper>
     </BackgroundImage>
