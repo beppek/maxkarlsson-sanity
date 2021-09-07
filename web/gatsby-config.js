@@ -22,7 +22,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://maxkarlsson.dev',
-        policy: [{ userAgent: '*', disallow: '/' }],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
